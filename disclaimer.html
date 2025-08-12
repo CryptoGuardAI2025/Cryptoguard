@@ -3,25 +3,60 @@
 <title>Disclaimer – CGAI</title><link rel="stylesheet" href="css/style.css"><script src="js/i18n.js"></script><script defer src="js/app.js"></script>
 </head><body>
 <header class="site-header">
-  <div class="container header-inner">
+  <div class="header-bar">
     <a class="brand" href="index.html" aria-label="Startseite">
-      <img class="brand__logo" src="assets/logo-gold.svg" alt="CGAI" width="40" height="40">
+      <img class="brand__logo" src="assets/logo-gold.svg" alt="CGAI Logo" />
       <span class="brand__wordmark">C G A I</span>
     </a>
-    <nav id="nav" class="main" aria-label="Hauptnavigation">
-      <a href="index.html" data-i18n="nav_start">Start</a>
-      <a href="krypto.html" data-i18n="nav_krypto">Krypto</a>
-      <a href="shop.html" data-i18n="nav_shop">Shop</a>
-      <a href="blog.html" data-i18n="nav_blog">Blog</a>
-      <a href="about.html" data-i18n="nav_about">Über uns</a>
-    </nav>
-    <div class="lang">
-      <button id="lang-de"><img src="https://flagcdn.com/w20/de.png" alt="DE">DE</button>
-      <button id="lang-en"><img src="https://flagcdn.com/w20/gb.png" alt="EN">EN</button>
+
+    <div class="header-actions">
+      <div class="lang-switch">
+        <button id="lang-de" class="pill" aria-label="Deutsch">
+          <img src="https://flagcdn.com/w20/de.png" alt="DE" />
+          <span>DE</span>
+        </button>
+        <button id="lang-en" class="pill" aria-label="English">
+          <img src="https://flagcdn.com/w20/gb.png" alt="EN" />
+          <span>EN</span>
+        </button>
+      </div>
+
+      <a href="login.html" class="btn btn-gold">Login</a>
+      <button id="burger" class="btn btn-outline icon" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="burger-lines"></span>
+      </button>
     </div>
-    <div class="auth"><a href="login.html" class="btn" data-i18n="login">Login</a></div>
-    <button id="burger" class="btn btn-outline" aria-label="Menü" style="margin-left:6px">☰</button>
   </div>
+
+  <!-- Off-canvas Drawer -->
+  <div id="nav-backdrop" class="nav-backdrop" hidden></div>
+  <nav id="nav-drawer" class="nav-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <span class="drawer-title">Navigation</span>
+      <button id="drawer-close" class="btn icon" aria-label="Menü schließen">×</button>
+    </div>
+
+    <ul class="drawer-list">
+      <li><a href="index.html" data-i18n="nav_start">Start</a></li>
+      <li class="drawer-group">
+        <button class="group-toggle" aria-expanded="false">Krypto</button>
+        <ul class="group-list">
+          <li><a href="krypto.html" data-i18n="nav_krypto">Übersicht & Live‑Chart</a></li>
+          <li><a href="krypto.html#prognose">KI‑Prognose</a></li>
+        </ul>
+      </li>
+      <li class="drawer-group">
+        <button class="group-toggle" aria-expanded="false">Shop</button>
+        <ul class="group-list">
+          <li><a href="shop.html#trader">Trader</a></li>
+          <li><a href="shop.html#investoren">Investoren</a></li>
+          <li><a href="shop.html#anfaenger">Anfänger</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+      <li><a href="about.html" data-i18n="nav_about">Über uns</a></li>
+    </ul>
+  </nav>
 </header>
 <main class="container"><section class="hero card">
 <h1>Disclaimer</h1>
