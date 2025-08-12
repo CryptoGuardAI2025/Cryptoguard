@@ -1,5 +1,10 @@
 
 // Burger menu
+document.getElementById('burger').addEventListener('click', function(){
+  const nav = document.getElementById('nav');
+  nav.classList.toggle('open');
+  this.setAttribute('aria-expanded', nav.classList.contains('open'));
+});
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.querySelector('#burger');
   const nav = document.querySelector('#nav');
