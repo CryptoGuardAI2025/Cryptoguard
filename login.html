@@ -1,0 +1,47 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>CGAI – Login</title>
+<link rel="stylesheet" href="css/style.css"></head><body><header class="header">
+  <div class="container inner">
+    <a class="brand" href="index.html"><img src="assets/img/logo-gold.svg" alt="CGAI"><span class="word">C G A I</span></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a id="nav-home" href="index.html">Start</a>
+      <a id="nav-crypto" href="krypto.html">Krypto</a>
+      <a id="nav-shop" href="shop.html">Shop</a>
+      <a id="nav-blog" href="blog.html">Blog</a>
+      <a id="nav-about" href="ueber-uns.html">Über uns</a>
+    </nav>
+    <div class="lang">
+      <button id="lang-de"><img src="assets/img/flag-de.svg" alt="">DE</button>
+      <button id="lang-en"><img src="assets/img/flag-uk.svg" alt="">EN</button>
+    </div>
+    <a class="btn btn-gold" href="login.html">Login</a>
+    <button class="burger" id="burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main class="container" style="padding:18px 0">
+  <div class="grid">
+    <div class="col-6"><div class="card"><h2>Login</h2>
+      <label>E‑Mail</label><input id="email" class="input">
+      <label>Passwort</label><input id="password" type="password" class="input">
+      <div style="margin-top:10px"><a class="btn btn-gold" id="demoLogin" href="#">Demo‑Login</a></div>
+    </div></div>
+    <div class="col-6"><div class="card"><h2>Registrieren</h2>
+      <label>E‑Mail</label><input id="email2" class="input">
+      <label>Passwort</label><input id="password2" type="password" class="input">
+      <label><input type="checkbox" id="terms"> Nutzungsbedingungen akzeptieren</label>
+      <div style="margin-top:10px"><a class="btn btn-gold" id="register" href="#">Registrieren</a></div>
+    </div></div>
+  </div>
+  <div class="card" style="margin-top:16px"><b>Status:</b> <span id="status">–</span> <a class="btn" id="logout" href="#" style="margin-left:10px">Logout</a></div>
+</main>
+<script src="js/auth.js"></script>
+<footer class="footer">
+  <div class="container row">
+    <div>© 2025 CGAI</div>
+    <div class="small"><a href="disclaimer.html">Disclaimer</a> · <a href="terms.html">Nutzungsbedingungen</a> · <a href="privacy.html">Datenschutz</a></div>
+  </div>
+</footer>
+<div id="cookie" class="cookie"><div class="wrap"><span>Wir verwenden lokale Speicherung für Sprache/Session. <a href="privacy.html">Mehr</a>.</span><a class="btn btn-gold" id="cookie-accept" href="#">OK</a></div></div>
+<div id="toast" class="toast">In den Warenkorb gelegt.</div>
+<script src="js/i18n.js"></script><script src="js/common.js"></script>
+</body></html>
