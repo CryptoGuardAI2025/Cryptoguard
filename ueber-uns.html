@@ -31,3 +31,59 @@
 <div id="toast" class="toast">In den Warenkorb gelegt.</div>
 <script src="js/i18n.js"></script><script src="js/common.js"></script>
 </body></html>
+<header class="site-header">
+  <div class="header-bar">
+    <a class="brand" href="index.html" aria-label="Startseite">
+      <img class="brand__logo" src="assets/logo-gold.svg" alt="CGAI Logo" />
+      <span class="brand__wordmark">C G A I</span>
+    </a>
+
+    <div class="header-actions">
+      <div class="lang-switch">
+        <button id="lang-de" class="pill" aria-label="Deutsch">
+          <img src="https://flagcdn.com/w20/de.png" alt="DE" />
+          <span>DE</span>
+        </button>
+        <button id="lang-en" class="pill" aria-label="English">
+          <img src="https://flagcdn.com/w20/gb.png" alt="EN" />
+          <span>EN</span>
+        </button>
+      </div>
+
+      <a href="login.html" class="btn btn-gold">Login</a>
+      <button id="burger" class="btn btn-outline icon" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-drawer">
+        <span class="burger-lines"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Off-canvas Drawer -->
+  <div id="nav-backdrop" class="nav-backdrop" hidden></div>
+  <nav id="nav-drawer" class="nav-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <span class="drawer-title">Navigation</span>
+      <button id="drawer-close" class="btn icon" aria-label="Menü schließen">×</button>
+    </div>
+
+    <ul class="drawer-list">
+      <li><a href="index.html" data-i18n="nav_start">Start</a></li>
+      <li class="drawer-group">
+        <button class="group-toggle" aria-expanded="false">Krypto</button>
+        <ul class="group-list">
+          <li><a href="krypto.html" data-i18n="nav_krypto">Übersicht & Live‑Chart</a></li>
+          <li><a href="krypto.html#prognose">KI‑Prognose</a></li>
+        </ul>
+      </li>
+      <li class="drawer-group">
+        <button class="group-toggle" aria-expanded="false">Shop</button>
+        <ul class="group-list">
+          <li><a href="shop.html#trader">Trader</a></li>
+          <li><a href="shop.html#investoren">Investoren</a></li>
+          <li><a href="shop.html#anfaenger">Anfänger</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+      <li><a href="about.html" data-i18n="nav_about">Über uns</a></li>
+    </ul>
+  </nav>
+</header>
