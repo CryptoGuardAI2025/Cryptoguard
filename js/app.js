@@ -57,3 +57,47 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('tv-total').appendChild(s);
   }
 });
+// === Drawer ===
+const burger = document.getElementById('burger');
+const drawer = document.getElementById('nav-drawer');
+const backdrop = document.getElementById('nav-backdrop');
+const drawerClose = document.getElementById('drawer-close');
+
+function openDrawer() {
+  drawer.classList.add('open');
+  backdrop.classList.add('active');
+  burger.setAttribute('aria-expanded', 'true');
+  drawer.setAttribute('aria-hidden', 'false');
+}
+function closeDrawer() {
+  drawer.classList.remove('open');
+  backdrop.classList.remove('active');
+  burger.setAttribute('aria-expanded', 'false');
+  drawer.setAttribute('aria-hidden', 'true');
+}
+if (burger && drawer && backdrop) {
+  burger.addEventListener('click', () => (drawer.classList.contains('open') ? closeDrawer() : openDrawer()));
+  backdrop.addEventListener('click', closeDrawer);
+  drawerClose?.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+  // Toggle Gruppen (Krypto/Shop)
+  document.querySelectorAll('.group-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      const list = btn.nextElementSibling;
+      if (list) list.style.display = expanded ? 'none' : 'block';
+    });
+  });
+  // Link click -> schließen
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+}
+
+// === Language switch (persist) ===
+const setLang = (lng) => {
+  localStorage.setItem('cgalang', lng);
+  if (typeof window.i18nApply === 'function') window.i18nApply(lng);
+};
+document.getElementById('lang-de')?.addEventListener('click', () => setLang('de'));
+document.getElementById('lang-en')?.addEventListener('click', () => setLang('en'));
+(() => { const saved = localStorage.getItem('cgalang') || document.documentElement.lang || 'de'; setLang(saved); })();
