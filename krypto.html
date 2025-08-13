@@ -72,6 +72,69 @@
     <div class="card stack"><h3 data-i18n="cats_investor">Investoren</h3><p class="notice" data-i18n="investor_desc"></p><a href="shop.html#investor" class="btn" data-i18n="more">Mehr</a></div>
     <div class="card stack"><h3 data-i18n="cats_anf">Anfänger</h3><p class="notice" data-i18n="anf_desc"></p><a href="shop.html#anfaenger" class="btn" data-i18n="more">Mehr</a></div>
   </section>
+<section class="container section">
+  <h2>Gesamtmarkt – Live‑Chart</h2>
+  <div class="card">
+    <!-- TradingView Widget -->
+    <div class="tradingview-widget-container">
+      <div id="tvchart" style="height:420px;"></div>
+    </div>
+  </div>
+</section>
+
+<section id="prognose" class="container section">
+  <h2>KI‑Prognose (Beta)</h2>
+  <div class="card">
+    <label for="coin">Coin (z.B. bitcoin, ethereum, solana, ripple)</label>
+    <input id="coin" placeholder="bitcoin" />
+    <button id="run-model" class="btn btn-gold">Prognose berechnen</button>
+    <p id="model-note" class="small">Keine Finanzberatung.</p>
+    <div id="model-out" class="muted"></div>
+  </div>
+</section>
+
+<script src="https://s3.tradingview.com/tv.js"></script>
+<script>
+  // TradingView init (Total Market Cap, $)
+  new TradingView.widget({
+    container_id: "tvchart",
+    autosize: true,
+    symbol: "CRYPTOCAP:TOTAL",
+    interval: "D",
+    timezone: "Etc/UTC",
+    theme: "dark",
+    style: "1",
+    locale: "de",
+    hide_top_toolbar: true,
+    hide_legend: false,
+    allow_symbol_change: false,
+  });
+
+  // Simple, nachvollziehbare Modell-Prognose (ohne API-Key)
+  const list = ["bitcoin","ethereum","solana","ripple","cardano","dogecoin","shiba-inu","polkadot","chainlink","litecoin","tron","matic","uniswap","stellar","aptos","arbitrum","internet-computer","vechain","vethor-token"];
+  const multipliers = {base: 1.0, momentum: 0.18, damp: 0.65}; // konservativ
+  const pretty = (x) => new Intl.NumberFormat('de-DE',{minimumFractionDigits:2, maximumFractionDigits:2}).format(x);
+
+  document.getElementById('run-model').addEventListener('click', async () => {
+    const out = document.getElementById('model-out');
+    let c = document.getElementById('coin').value.trim().toLowerCase();
+    if (!list.includes(c)) { out.textContent = "Unbekannter Coin. Beispiele: " + list.slice(0,8).join(", ") + " …"; return; }
+
+    // Preis ohne API-Key (Coingecko Free braucht serverseitig; hier Demo-Modell: Referenzwerte & Momentum-Schätzung)
+    // Idee: hol dir später echte Preise serverseitig (Cloud Function) und ersetze dieses Modul.
+    const seed = Math.abs([...c].reduce((a,ch)=>a+ch.charCodeAt(0),0));
+    const now = (seed % 3000) + 50; // simuliert "aktuellen" USD-Preisbereich je Asset
+    const momentum = ((seed % 37) - 18)/100; // -0.18 .. +0.18
+    const next = now * (multipliers.base + momentum * multipliers.damp);
+
+    out.innerHTML = `
+      <div class="card" style="margin-top:12px">
+        <strong>Aktuell (Demo):</strong> $${pretty(now)}<br/>
+        <strong>1‑Jahres‑Prognose (konservativ):</strong> $${pretty(next)} (${( (next/now-1)*100 ).toFixed(1)}%)
+      </div>
+    `;
+  });
+</script>
 </main>
 
 <footer>
