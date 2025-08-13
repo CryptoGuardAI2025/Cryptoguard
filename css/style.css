@@ -69,3 +69,56 @@ footer a{color:#a9bac9}
 .input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #223047;background:#0e151d;color:#e7ecef}
 .stack{display:flex;flex-direction:column;gap:14px}
 .kicker{display:inline-block;background:#111827;border:1px solid #283141;color:#c7d2fe;border-radius:12px;padding:6px 10px;margin-bottom:10px}
+/* Header Layout */
+.site-header { position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(8px); background: linear-gradient(180deg, rgba(10,10,12,.85), rgba(10,10,12,.55)); border-bottom: 1px solid rgba(255,255,255,.06);}
+.header-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 16px; max-width: 1200px; margin: 0 auto; }
+
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand__logo { width: 40px; height: 40px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(255,215,0,.12)); }
+.brand__wordmark { font-family: "Orbitron", system-ui, sans-serif; letter-spacing: .45em; color: #d9c07a; font-weight: 700; font-size: 1.05rem; }
+
+.header-actions { display: flex; align-items: center; gap: 10px; }
+
+/* Pills (DE/EN) */
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.04); color: #e8ecf1; cursor: pointer; }
+.pill img { width: 18px; height: 12px; border-radius: 2px; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.03); color: #e8ecf1; cursor: pointer; text-decoration: none; }
+.btn:hover { border-color: rgba(255,255,255,.18); }
+.btn-gold { background: linear-gradient(180deg,#e5c66a,#caa746); color:#14161a; border: none; box-shadow: 0 0 30px rgba(229,198,106,.18); font-weight: 700; }
+.btn-outline { background: transparent; }
+
+.icon { width: 44px; height: 44px; justify-content: center; }
+.burger-lines,
+.burger-lines::before,
+.burger-lines::after { content:""; display:block; width:20px; height:2px; background:#e8ecf1; border-radius:2px; position:relative; transition:transform .25s ease, opacity .2s ease; }
+.burger-lines::before { position:absolute; top:-6px; }
+.burger-lines::after { position:absolute; top:6px; }
+
+/* Drawer & Backdrop */
+.nav-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.4); backdrop-filter: blur(2px); opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+.nav-backdrop.active { opacity: 1; pointer-events: auto; }
+
+.nav-drawer { position: fixed; top: 0; left: 0; right: 0; max-width: 520px; margin: 0 auto; background: #0f1216; border-bottom: 1px solid rgba(255,255,255,.06);
+  transform: translateY(-105%); transition: transform .28s ease; box-shadow: 0 40px 80px rgba(0,0,0,.35); border-radius: 0 0 16px 16px; }
+.nav-drawer.open { transform: translateY(0); }
+.drawer-header { display:flex; align-items:center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,.06); }
+.drawer-title { font-weight:700; letter-spacing:.06em; color:#e8ecf1; }
+.drawer-list { list-style:none; margin:0; padding:12px 10px 18px; display:flex; flex-direction:column; gap:4px; }
+.drawer-list a { display:block; padding:12px 14px; border-radius:10px; color:#e8ecf1; text-decoration:none; }
+.drawer-list a:hover { background:rgba(255,255,255,.04); }
+.drawer-group { margin-top:4px; }
+.group-toggle { width:100%; text-align:left; padding:12px 14px; border-radius:10px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); color:#e8ecf1; cursor:pointer; }
+.group-list { list-style:none; margin:6px 0 10px 0; padding-left:10px; border-left:2px solid rgba(255,255,255,.06); display:none; }
+.group-list li a { padding:10px 12px; }
+
+/* Burger active (X) */
+.nav-drawer.open ~ .header-bar .burger-lines { transform: rotate(45deg); }
+.nav-drawer.open ~ .header-bar .burger-lines::before { transform: rotate(-90deg) translateX(-6px); }
+.nav-drawer.open ~ .header-bar .burger-lines::after { opacity:0; transform: translateY(-6px); }
+
+/* Responsive */
+@media (min-width: 1024px){
+  .nav-drawer { left: 16px; right: 16px; max-width: 980px; }
+}
