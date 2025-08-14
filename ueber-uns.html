@@ -51,39 +51,39 @@
       </div>
 
       <a href="login.html" class="btn btn-gold">Login</a>
-      <button id="burger" class="btn btn-outline icon" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-drawer">
-        <span class="burger-lines"></span>
-      </button>
+      <!-- CGAI Burger: Button + Panel + Overlay -->
+<button
+  id="cgaiburger-btn"
+  class="cgaiburger__btn"
+  aria-label="Menü öffnen"
+  aria-expanded="false"
+  aria-controls="cgaiburger-panel">
+  <span class="cgaiburger__bar"></span>
+  <span class="cgaiburger__bar"></span>
+  <span class="cgaiburger__bar"></span>
+</button>
+
+<div id="cgaiburger-overlay" class="cgaiburger__overlay" hidden></div>
+
+<nav id="cgaiburger-panel" class="cgaiburger__panel" aria-hidden="true">
+  <div class="cgaiburger__header">
+    <img src="assets/logo-gold.svg" alt="CGAI Logo" class="cgaiburger__avatar">
+    <div class="cgaiburger__hello">
+      <div class="cgaiburger__brand">C G A I</div>
+      <div class="cgaiburger__sub">Navigation für Kryptomärkte</div>
     </div>
   </div>
 
-  <!-- Off-canvas Drawer -->
-  <div id="nav-backdrop" class="nav-backdrop" hidden></div>
-  <nav id="nav-drawer" class="nav-drawer" aria-hidden="true">
-    <div class="drawer-header">
-      <span class="drawer-title">Navigation</span>
-      <button id="drawer-close" class="btn icon" aria-label="Menü schließen">×</button>
-    </div>
-
-    <ul class="drawer-list">
-      <li><a href="index.html" data-i18n="nav_start">Start</a></li>
-      <li class="drawer-group">
-        <button class="group-toggle" aria-expanded="false">Krypto</button>
-        <ul class="group-list">
-          <li><a href="krypto.html" data-i18n="nav_krypto">Übersicht & Live‑Chart</a></li>
-          <li><a href="krypto.html#prognose">KI‑Prognose</a></li>
-        </ul>
-      </li>
-      <li class="drawer-group">
-        <button class="group-toggle" aria-expanded="false">Shop</button>
-        <ul class="group-list">
-          <li><a href="shop.html#trader">Trader</a></li>
-          <li><a href="shop.html#investoren">Investoren</a></li>
-          <li><a href="shop.html#anfaenger">Anfänger</a></li>
-        </ul>
-      </li>
-      <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
-      <li><a href="about.html" data-i18n="nav_about">Über uns</a></li>
-    </ul>
-  </nav>
+  <ul class="cgaiburger__list">
+    <li class="cgaiburger__section">Navigation</li>
+    <li><a href="index.html" data-i18n="nav_start">Start</a></li>
+    <li><a href="krypto.html" data-i18n="nav_krypto">Krypto</a></li>
+    <li><a href="shop.html" data-i18n="nav_shop">Shop</a></li>
+    <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+    <li><a href="about.html" data-i18n="nav_about">Über uns</a></li>
+    <li class="cgaiburger__thin"><hr></li>
+    <li class="cgaiburger__section">Konto</li>
+    <li><a href="login.html" class="cgaiburger__login" data-i18n="nav_login">Login</a></li>
+  </ul>
+</nav>
 </header>
