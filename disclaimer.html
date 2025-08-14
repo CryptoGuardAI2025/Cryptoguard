@@ -3,23 +3,58 @@
 <title>Disclaimer – CGAI</title><link rel="stylesheet" href="css/style.css"><script src="js/i18n.js"></script><script defer src="js/app.js"></script>
 </head><body>
 <header class="site-header">
-  <div class="header-bar">
-    <a class="brand" href="index.html" aria-label="Startseite">
-      <img class="brand__logo" src="assets/logo-gold.svg" alt="CGAI Logo" />
-      <span class="brand__wordmark">C G A I</span>
-    </a>
+  <div class="container header-inner">
+  <!-- Brand -->
+  <a class="brand" href="index.html" aria-label="Startseite">
+    <img class="brand__logo" src="assets/logo-gold.svg" alt="CGAI">
+    <span class="brand__wordmark">C G A I</span>
+  </a>
 
-    <div class="header-actions">
-      <div class="lang-switch">
-        <button id="lang-de" class="pill" aria-label="Deutsch">
-          <img src="https://flagcdn.com/w20/de.png" alt="DE" />
-          <span>DE</span>
-        </button>
-        <button id="lang-en" class="pill" aria-label="English">
-          <img src="https://flagcdn.com/w20/gb.png" alt="EN" />
-          <span>EN</span>
-        </button>
-      </div>
+  <!-- Rechts: Sprache + Login + Burger -->
+  <div class="header-right">
+    <div class="lang">
+      <button id="lang-de" class="lang__btn"><img src="https://flagcdn.com/w20/de.png" alt="">DE</button>
+      <button id="lang-en" class="lang__btn"><img src="https://flagcdn.com/w20/gb.png" alt="">EN</button>
+    </div>
+
+    <a href="login.html" class="btn btn-gold">Login</a>
+
+    <!-- Burger-Button -->
+    <button
+      id="cgaiburger-btn"
+      class="cgaiburger__btn"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+      aria-controls="cgaiburger-panel">
+      <span class="cgaiburger__bar"></span>
+      <span class="cgaiburger__bar"></span>
+      <span class="cgaiburger__bar"></span>
+    </button>
+  </div>
+</div>
+
+<!-- Overlay + Panel direkt unterhalb des Headers lassen -->
+<div id="cgaiburger-overlay" class="cgaiburger__overlay" hidden></div>
+<nav id="cgaiburger-panel" class="cgaiburger__panel" aria-hidden="true">
+  <div class="cgaiburger__header">
+    <img src="assets/logo-gold.svg" alt="CGAI" class="cgaiburger__avatar">
+    <div>
+      <div class="cgaiburger__brand">C G A I</div>
+      <div class="cgaiburger__sub">Navigation für Kryptomärkte</div>
+    </div>
+  </div>
+  <ul class="cgaiburger__list">
+    <li class="cgaiburger__section">Navigation</li>
+    <li><a href="index.html" data-i18n="nav_start">Start</a></li>
+    <li><a href="krypto.html" data-i18n="nav_krypto">Krypto</a></li>
+    <li><a href="shop.html" data-i18n="nav_shop">Shop</a></li>
+    <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+    <li><a href="about.html" data-i18n="nav_about">Über uns</a></li>
+    <li class="cgaiburger__thin"><hr></li>
+    <li class="cgaiburger__section">Konto</li>
+    <li><a href="login.html" class="cgaiburger__login" data-i18n="nav_login">Login</a></li>
+  </ul>
+</nav>
 
       <a href="login.html" class="btn btn-gold">Login</a>
       <!-- CGAI Burger: Button + Panel + Overlay -->
