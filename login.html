@@ -1,107 +1,55 @@
 <!doctype html><html lang="de"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Login – CGAI</title><link rel="stylesheet" href="css/style.css"><script src="js/i18n.js"></script><script defer src="js/app.js"></script>
-</head><body>
+<title>Login — CGAI</title>
+<link rel="stylesheet" href="css/style.css"></head><body>
+
 <header class="site-header">
-  <div class="container header-inner">
-  <!-- Brand -->
-  <a class="brand" href="index.html" aria-label="Startseite">
-    <img class="brand__logo" src="assets/logo-gold.svg" alt="CGAI">
-    <span class="brand__wordmark">C G A I</span>
-  </a>
-
-  <!-- Rechts: Sprache + Login + Burger -->
-  <div class="header-right">
-    <div class="lang">
-      <button id="lang-de" class="lang__btn"><img src="https://flagcdn.com/w20/de.png" alt="">DE</button>
-      <button id="lang-en" class="lang__btn"><img src="https://flagcdn.com/w20/gb.png" alt="">EN</button>
-    </div>
-
-    <a href="login.html" class="btn btn-gold">Login</a>
-
-    <!-- Burger-Button -->
-    <button
-      id="cgaiburger-btn"
-      class="cgaiburger__btn"
-      aria-label="Menü öffnen"
-      aria-expanded="false"
-      aria-controls="cgaiburger-panel">
-      <span class="cgaiburger__bar"></span>
-      <span class="cgaiburger__bar"></span>
-      <span class="cgaiburger__bar"></span>
-    </button>
-  </div>
-</div>
-
-<!-- Overlay + Panel direkt unterhalb des Headers lassen -->
-<div id="cgaiburger-overlay" class="cgaiburger__overlay" hidden></div>
-<nav id="cgaiburger-panel" class="cgaiburger__panel" aria-hidden="true">
-  <div class="cgaiburger__header">
-    <img src="assets/logo-gold.svg" alt="CGAI" class="cgaiburger__avatar">
-    <div>
-      <div class="cgaiburger__brand">C G A I</div>
-      <div class="cgaiburger__sub">Navigation für Kryptomärkte</div>
+  <div class="container header-bar">
+    <a class="brand" href="index.html" aria-label="Startseite">
+      <img class="brand__logo" src="assets/logo-gold.svg" alt="CGAI">
+      <span class="brand__wordmark">C G A I</span>
+    </a>
+    <div class="header-actions">
+      <button id="lang-de" class="pill" aria-label="Deutsch">
+        <img src="https://flagcdn.com/w20/de.png" alt="DE"><span>DE</span>
+      </button>
+      <button id="lang-en" class="pill" aria-label="English">
+        <img src="https://flagcdn.com/w20/gb.png" alt="EN"><span>EN</span>
+      </button>
+      <a href="login.html" class="btn btn-gold" data-i18n="nav_login">Login</a>
+      <button id="burger" class="burger" aria-label="Menü öffnen">
+        <span class="burger__bar"></span>
+        <span class="burger__bar"></span>
+        <span class="burger__bar"></span>
+      </button>
     </div>
   </div>
-  <ul class="cgaiburger__list">
-    <li class="cgaiburger__section">Navigation</li>
-    <li><a href="index.html" data-i18n="nav_start">Start</a></li>
-    <li><a href="krypto.html" data-i18n="nav_krypto">Krypto</a></li>
-    <li><a href="shop.html" data-i18n="nav_shop">Shop</a></li>
-    <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
-    <li><a href="about.html" data-i18n="nav_about">Über uns</a></li>
-    <li class="cgaiburger__thin"><hr></li>
-    <li class="cgaiburger__section">Konto</li>
-    <li><a href="login.html" class="cgaiburger__login" data-i18n="nav_login">Login</a></li>
-  </ul>
-</nav>
-
-      <a href="login.html" class="btn btn-gold">Login</a>
-      <!-- CGAI Burger: Button + Panel + Overlay -->
-<button
-  id="cgaiburger-btn"
-  class="cgaiburger__btn"
-  aria-label="Menü öffnen"
-  aria-expanded="false"
-  aria-controls="cgaiburger-panel">
-  <span class="cgaiburger__bar"></span>
-  <span class="cgaiburger__bar"></span>
-  <span class="cgaiburger__bar"></span>
-</button>
-
-<div id="cgaiburger-overlay" class="cgaiburger__overlay" hidden></div>
-
-<nav id="cgaiburger-panel" class="cgaiburger__panel" aria-hidden="true">
-  <div class="cgaiburger__header">
-    <img src="assets/logo-gold.svg" alt="CGAI Logo" class="cgaiburger__avatar">
-    <div class="cgaiburger__hello">
-      <div class="cgaiburger__brand">C G A I</div>
-      <div class="cgaiburger__sub">Navigation für Kryptomärkte</div>
+  <div id="nav-panel" class="nav-panel container" role="dialog" aria-modal="false">
+    <div class="nav-group">
+      <h5>Navigation</h5>
+      <div class="nav-list">
+        <a class="nav-item" href="index.html"><span data-i18n="nav_home">Start</span> <span>›</span></a>
+        <a class="nav-item" href="crypto.html"><span data-i18n="nav_crypto">Krypto</span> <span>›</span></a>
+        <a class="nav-item" href="shop.html"><span data-i18n="nav_shop">Shop</span> <span>›</span></a>
+        <a class="nav-item" href="blog.html"><span data-i18n="nav_blog">Blog</span> <span>›</span></a>
+        <a class="nav-item" href="about.html"><span data-i18n="nav_about">Über uns</span> <span>›</span></a>
+      </div>
     </div>
   </div>
-
-  <ul class="cgaiburger__list">
-    <li class="cgaiburger__section">Navigation</li>
-    <li><a href="index.html" data-i18n="nav_start">Start</a></li>
-    <li><a href="krypto.html" data-i18n="nav_krypto">Krypto</a></li>
-    <li><a href="shop.html" data-i18n="nav_shop">Shop</a></li>
-    <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
-    <li><a href="about.html" data-i18n="nav_about">Über uns</a></li>
-    <li class="cgaiburger__thin"><hr></li>
-    <li class="cgaiburger__section">Konto</li>
-    <li><a href="login.html" class="cgaiburger__login" data-i18n="nav_login">Login</a></li>
-  </ul>
-</nav>
 </header>
-<main class="container"><section class="hero"><h1>Login</h1><p class="lead">Dies ist ein Demo‑Login ohne Backend. Für echte Konten später z.B. Firebase/Clerk/NextAuth anbinden.</p></section></main>
+
+<main class="container section"><div class="card"><h2>Login</h2><p>Inhalte folgen.</p></div></main>
+
 <footer>
-  <div class="container">
-    <div class="small">© 2025 CGAI</div>
+  <div class="container row">
+    <div>© 2025 CGAI</div>
     <div class="small">
-      <a href="disclaimer.html" data-i18n="footer_disclaimer">Disclaimer</a> ·
-      <a href="terms.html" data-i18n="footer_terms">Nutzungsbedingungen</a> ·
-      <a href="privacy.html" data-i18n="footer_privacy">Datenschutz</a>
+      <a href="disclaimer.html">Disclaimer</a> ·
+      <a href="terms.html">Nutzungsbedingungen</a> ·
+      <a href="privacy.html">Datenschutz</a>
     </div>
   </div>
 </footer>
+
+<script src="js/app.js"></script>
 </body></html>
