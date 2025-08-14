@@ -217,3 +217,52 @@ footer a{color:#a9bac9}
 @media (min-width:1024px){
   .cgaiburger__btn{ display:none; }
 }
+/* ===== Header Layout ===== */
+.site-header .header-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px;
+}
+.header-right{ display:flex; align-items:center; gap:12px; }
+.lang{ display:flex; align-items:center; gap:8px; }
+.lang__btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 12px; border-radius:12px; border:1px solid #262E42;
+  background:#10151C; color:#E9EDF5; font-weight:600;
+}
+.lang__btn img{ width:20px; height:14px; border-radius:2px; }
+
+/* ===== Gold Button konsistent ===== */
+.btn-gold{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 16px; border-radius:14px; border:1px solid #E6C26A;
+  background:linear-gradient(180deg,#E4B84C,#CFA140);
+  color:#121212; font-weight:700; box-shadow:0 0 0 6px rgba(228,184,76,.35);
+}
+
+/* ===== Burger – gegen fremde .btn-Styles abschotten ===== */
+.cgaiburger__btn{
+  all:unset; /* verhindert vererbte .btn Regeln */
+  position:relative; display:inline-flex; align-items:center; justify-content:center;
+  width:48px; height:48px; border-radius:12px; cursor:pointer;
+  background:#E4B84C; box-shadow:0 0 0 6px rgba(228,184,76,.35);
+}
+.cgaiburger__btn::before,
+.cgaiburger__btn::after{ content:none !important; } /* falls globale Pseudoinhalte existieren */
+
+.cgaiburger__bar{
+  content:""; display:block; width:22px; height:2px; background:#0B0D11;
+  border-radius:2px;
+}
+.cgaiburger__bar + .cgaiburger__bar{ margin-top:5px; }
+
+/* Overlay & Panel */
+.cgaiburger__overlay{
+  position:fixed; inset:0; background:rgba(0,0,0,.55);
+  backdrop-filter:saturate(120%) blur(2px); opacity:0; transition:opacity .25s;
+  z-index:98;
+}
+.cgaiburger__panel{
+  position:fixed; left:0; right:0; top:0; z-index:99;
+  background:linear-gradient(180deg,#0D1117,#0C0F14);
+  border-bottom:1px solid #1D2230; box-shadow:0 10px 24px rgba(0,0,0,.45);
+ 
