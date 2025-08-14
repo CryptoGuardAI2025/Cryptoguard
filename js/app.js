@@ -130,3 +130,35 @@ document.getElementById('lang-en')?.addEventListener('click', () => setLang('en'
   document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && panel.classList.contains('is-open')) close(); });
   panel.addEventListener('click', (e)=>{ if(e.target.closest('a')) close(); });
 })();
+/* ===== CGAI Burger ===== */
+(function(){
+  const btn = document.getElementById('cgaiburger-btn');
+  const panel = document.getElementById('cgaiburger-panel');
+  const overlay = document.getElementById('cgaiburger-overlay');
+  if(!btn || !panel || !overlay) return;
+
+  const open = () => {
+    panel.classList.add('is-open');
+    overlay.hidden = false;
+    requestAnimationFrame(()=> overlay.classList.add('is-open'));
+    btn.setAttribute('aria-expanded','true');
+    panel.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow='hidden';
+  };
+  const close = () => {
+    panel.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    btn.setAttribute('aria-expanded','false');
+    panel.setAttribute('aria-hidden','true');
+    setTimeout(()=> overlay.hidden = true, 250);
+    document.documentElement.style.overflow='';
+  };
+
+  btn.addEventListener('click', ()=> panel.classList.contains('is-open') ? close() : open());
+  overlay.addEventListener('click', close);
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && panel.classList.contains('is-open')) close(); });
+  panel.addEventListener('click', e=>{ if(e.target.closest('a')) close(); });
+
+  // kleiner Fallback: globale API zum Debuggen
+  window.CGAI = Object.assign(window.CGAI||{}, { openMenu: open, closeMenu: close });
+})();
